@@ -85,6 +85,161 @@ code{font-family:var(--f-mono);font-size:.9em;background:var(--code-bg);padding:
   </div>
 </header>
 
+<section id="ep1">
+  <h2><span class="n">EP1</span>엘리베이터 정원 초과</h2>
+  <p>첫 에피소드입니다. 하마, 고릴라, 코뿔소, 코끼리가 차례로 엘리베이터에 꾸역꾸역 타고, 마지막에 개미 한 마리가 타는 순간 "삐—" 정원 초과 경보가 울립니다. 그리고 다들 개미가 아니라 <b>코끼리를 밀어낸다</b>는 결말이에요. 총 <b>약 50초</b>, 장소는 한 곳뿐입니다.</p>
+  <div class="board">
+    <div><b>50초</b><span>목표 길이</span></div>
+    <div><b>6장면</b><span>+ 짧은 컷 4개</span></div>
+    <div><b>1곳</b><span>호텔 로비 엘리베이터</span></div>
+    <div><b>고정</b><span>카메라 위치</span></div>
+  </div>
+
+  <h3>만들기 전에 꼭 알아둘 두 가지</h3>
+  <ul class="check">
+    <li><b>마지막 프레임 이어 붙이기.</b> 엘리베이터 안이 점점 붐벼야 하니까 장면 1만 이미지 프롬프트로 만들어요. 장면 2부터는 <b>바로 앞 영상의 마지막 프레임을 캡처해서 시작 이미지로</b> 넣으세요. Kling은 "연장(Extend)" 기능, CapCut은 마지막 프레임 내보내기를 쓰면 됩니다. 그래야 먼저 탄 동물이 계속 안에 남아 있어요.</li>
+    <li><b>숫자는 편집에서 넣기.</b> AI는 화면 속 글자와 숫자를 잘 못 그려요. 문 위 무게 표시판은 비워 두고, 숫자는 CapCut에서 텍스트로 덧씌우세요 (아래 무게 표 참고).</li>
+  </ul>
+
+  <div class="ticket"><div class="hd"><span>공통 스타일 고정문<small>장면 1 이미지 맨 앞에 붙이기</small></span><button class="copy">복사</button></div>
+<pre>Photorealistic, vertical 9:16 frame. Static eye-level wide shot facing a large vintage hotel elevator with open brass sliding doors, in a grand hotel lobby with a marble floor and potted palms. The elevator interior is clearly visible: warm wood paneling, a mirrored back wall, brass handrails. Above the doors, a blank black rectangular LED panel. A small monkey in a red bellhop uniform stands beside the elevator door next to the call button. Warm soft lighting, shot on ARRI Alexa, 35mm lens, ultra-detailed fur and textures, natural colors, no text, no watermark.</pre></div>
+
+  <div class="scene"><h3>장면 1 · 하마 탑승 <span class="pill">훅 0–7초</span></h3>
+  <div class="ticket"><div class="hd"><span>이미지</span><button class="copy">복사</button></div>
+<pre>[공통 스타일 고정문] A huge hippopotamus stands in the lobby right in front of the open elevator doors, about to step in, the empty elevator behind it.</pre></div>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera. The hippopotamus waddles into the elevator. As it steps in, the whole elevator floor sinks down a few centimeters with a heavy clunk and the brass doors rattle. The hippo turns around to face the camera and stands calmly, filling half of the elevator. The monkey bellhop looks up nervously. Realistic physics, 7 seconds.</pre></div></div>
+
+  <div class="scene"><h3>장면 2 · 고릴라 탑승 <span class="pill">7–14초</span></h3>
+  <p class="muted">시작 이미지 = 장면 1의 마지막 프레임</p>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera. A large silverback gorilla walks up and squeezes sideways into the elevator next to the hippo, its face pressed flat against the mirrored wall, its arms tucked in awkwardly. The elevator sinks a little more with a creak. The gorilla gives an annoyed sideways look. Realistic physics, 7 seconds.</pre></div></div>
+
+  <div class="scene"><h3>짧은 컷 A · 원숭이 벨보이 <span class="pill">1.5초</span></h3>
+  <div class="ticket"><div class="hd"><span>이미지 + 영상</span><button class="copy">복사</button></div>
+<pre>IMAGE: Close-up of a small monkey in a red bellhop uniform and cap standing in a hotel lobby, looking up with wide nervous eyes, warm lighting, photorealistic, 9:16.
+VIDEO: Static close-up. The monkey bellhop slowly swallows and tugs at its collar nervously. 3 seconds.</pre></div></div>
+
+  <div class="scene"><h3>장면 3 · 코뿔소 탑승 <span class="pill">14–22초</span></h3>
+  <p class="muted">시작 이미지 = 장면 2의 마지막 프레임</p>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera. A rhinoceros backs into the elevator rear-first, pushing the hippo and gorilla tighter together. Its horn still sticks out of the doorway. The gorilla's cheeks squish against the mirror. The elevator sinks again with a loud metallic groan. Realistic physics, 8 seconds.</pre></div></div>
+
+  <div class="scene"><h3>짧은 컷 B · 무게 표시판 <span class="pill">1초</span></h3>
+  <div class="ticket"><div class="hd"><span>이미지 + 영상</span><button class="copy">복사</button></div>
+<pre>IMAGE: Extreme close-up of a blank black rectangular LED panel mounted on a brass elevator frame, glowing faintly amber, a single drop of condensation running down it, photorealistic, 9:16.
+VIDEO: Static extreme close-up. The amber glow of the panel flickers nervously. 3 seconds.</pre></div></div>
+
+  <div class="scene"><h3>장면 4 · 코끼리 탑승 <span class="pill">22–32초</span></h3>
+  <p class="muted">시작 이미지 = 장면 3의 마지막 프레임</p>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera. An adult elephant walks up. All the animals inside take a deep breath and suck in their bellies. The elephant squeezes in, its trunk curling up over everyone's heads, ears folded against the doorframe. Faces are squished against the mirrored wall. The brass doors slowly slide shut, struggling, and finally close completely. Comedic, realistic physics, 10 seconds.</pre></div></div>
+
+  <div class="scene"><h3>장면 5 · 개미 <span class="pill">반전 32–40초</span></h3>
+  <div class="ticket"><div class="hd"><span>이미지</span><button class="copy">복사</button></div>
+<pre>[공통 스타일 고정문] The brass elevator doors are open again, revealing the elevator completely packed: a hippo, a gorilla, a rhino and an elephant squeezed together with faces pressed against the mirrored wall. On the marble floor right at the threshold, a single tiny black ant, shown in sharp focus.</pre></div>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera, slow and quiet. The camera holds as a single tiny ant slowly walks across the threshold into the packed elevator. The moment its last leg crosses the line, every animal freezes. Then all four animals slowly turn their heads down to stare at the ant. The ant stops and looks back up at them. 8 seconds.</pre></div></div>
+
+  <div class="scene"><h3>짧은 컷 C · 경보 <span class="pill">1.5초</span></h3>
+  <div class="ticket"><div class="hd"><span>이미지 + 영상</span><button class="copy">복사</button></div>
+<pre>IMAGE: Extreme close-up of the black LED panel above a brass elevator door now glowing bright red, with a small red warning light beside it, photorealistic, 9:16.
+VIDEO: Static extreme close-up. The panel and warning light flash red rapidly. 3 seconds.</pre></div></div>
+
+  <div class="scene"><h3>장면 6 · 결말 <span class="pill">보상 40–50초</span></h3>
+  <p class="muted">시작 이미지 = 장면 5의 마지막 프레임</p>
+  <div class="ticket"><div class="hd"><span>영상</span><button class="copy">복사</button></div>
+<pre>Static camera. The ant calmly raises one antenna and points at the elephant. The hippo, gorilla and rhino look at each other, nod, and together shove the elephant out of the elevator. The elephant tumbles backward and lands sitting on the marble lobby floor. The brass doors slide shut. The elephant sits alone looking sad, and the monkey bellhop gently hands it a small wooden sign with an arrow. Comedic, realistic physics, 10 seconds.</pre></div></div>
+
+  <h3>CapCut으로 넣을 무게 숫자</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>시점</th><th>표시판 숫자</th><th>색</th></tr></thead>
+    <tbody>
+      <tr><td>시작</td><td class="t">0 / 10,000 KG</td><td>흰색</td></tr>
+      <tr><td>하마 탑승 후</td><td class="t">1,800 / 10,000 KG</td><td>흰색</td></tr>
+      <tr><td>고릴라 탑승 후</td><td class="t">2,000 / 10,000 KG</td><td>흰색</td></tr>
+      <tr><td>코뿔소 탑승 후</td><td class="t">4,300 / 10,000 KG</td><td>노란색</td></tr>
+      <tr><td>짧은 컷 B</td><td class="t">4,300 / 10,000 KG</td><td>노란색, 살짝 흔들리게</td></tr>
+      <tr><td>코끼리 탑승 후</td><td class="t">9,999.999 / 10,000 KG</td><td>주황색</td></tr>
+      <tr><td>개미 탑승 (짧은 컷 C)</td><td class="t">10,000.001 KG — OVERLOAD</td><td>빨간색, 깜빡임</td></tr>
+      <tr><td>코끼리 하차 후</td><td class="t">4,500.001 / 10,000 KG ✓</td><td>초록색</td></tr>
+      <tr><td>마지막 표지판</td><td class="t">STAIRS →</td><td>표지판 위에 텍스트</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">숫자가 9,999.999에서 딱 멈추는 장면이 이 영상의 핵심 웃음 포인트예요. 코끼리가 탄 뒤 숫자를 0.5초쯤 크게 보여주세요.</p>
+
+  <h3>효과음 순서</h3>
+  <div class="ticket"><div class="hd"><span>효과음 검색어</span><button class="copy">복사</button></div>
+<pre>1. Elevator ding (bright bell) — 영상 시작
+2. Heavy metal clunk and elevator floor sinking — 하마
+3. Squeaky rubber squish — 고릴라 얼굴 눌림
+4. Loud metal groan / creak — 코뿔소
+5. Nervous gulp — 원숭이 벨보이
+6. Everyone inhaling deeply — 코끼리 직전
+7. Elevator doors struggling, sliding shut — 코끼리
+8. Record scratch, then silence — 개미 등장 직전
+9. Tiny footsteps tip-tap — 개미
+10. Loud overload alarm beep beep beep — 경보
+11. Cartoon thud / butt landing on floor — 코끼리 퇴장
+12. Elevator ding + sad trombone "wah wah" — 마지막</pre></div>
+  <p class="muted">배경음은 TikTok 상업용 음원에서 "elevator music", "lounge jazz"로 찾으세요. 뻔한 엘리베이터 음악이 오히려 웃깁니다. 개미 장면에서는 음악을 완전히 끄고 발소리만 남기세요.</p>
+
+  <h3>업로드 문구</h3>
+  <div class="ticket"><div class="hd"><span>영어 제목 + 해시태그</span><button class="copy">복사</button></div>
+<pre>The Elevator Had ONE Job! 🐜😂 Who should've gotten out?
+#FunnyAnimals #AnimalComedy #Elevator #Elephant #Hippo #Gorilla #AIvideo #AIanimals #WildlifeComedy #fyp</pre></div>
+  <div class="ticket"><div class="hd"><span>한국어 캡션</span><button class="copy">복사</button></div>
+<pre>개미 한 마리 탔을 뿐인데 🐜 근데 왜 코끼리가 내려? 😂
+#동물 #웃긴동물 #엘리베이터 #AI영상 #코끼리 #fyp</pre></div>
+  <p class="muted">캡션 끝에 질문("누가 내려야 했을까?")을 붙이면 댓글 논쟁이 생깁니다. 업로드할 때 "AI 생성 콘텐츠" 라벨도 잊지 말고 켜세요.</p>
+</section>
+
+<section id="fast">
+  <h2><span class="n">⚡</span>빠르게 만드는 방법</h2>
+  <p>장면마다 이미지를 따로 만들고, 마지막 프레임을 캡처하고, 효과음을 따로 찾는 과정이 가장 오래 걸립니다. 아래 세 가지 방법을 쓰면 이 과정을 크게 줄일 수 있어요. AI 영상 도구는 기능이 자주 바뀌니 <b>2026년 11월 기준</b>이라는 점을 감안하세요.</p>
+
+  <h3>① Google Flow (Veo 3.1) <span class="pill">추천</span></h3>
+  <ul class="check">
+    <li><b>Ingredients to Video (재료로 영상 만들기):</b> 엘리베이터 세트 이미지와 동물 캐릭터 이미지를 "재료"로 등록해 두면, 장면마다 같은 배경과 같은 동물로 영상이 나옵니다. 마지막 프레임을 캡처해서 이어 붙이는 작업이 거의 필요 없어져요. <b>9:16 세로 영상</b>도 바로 만들 수 있습니다.</li>
+    <li><b>효과음이 같이 생성됨:</b> Veo는 영상과 함께 소리도 만들어요. 문 닫히는 소리, 쿵 하는 소리, 경보음 같은 효과음을 따로 찾는 시간이 줄어듭니다.</li>
+    <li><b>Frames to Video (첫 프레임·마지막 프레임 지정):</b> 시작 이미지와 끝 이미지를 정해 주면 그 사이를 영상으로 채워 줍니다. "코끼리가 밀려나는" 장면처럼 결말 모습이 정해진 컷에 좋아요.</li>
+    <li><b>Scenebuilder:</b> 만든 클립을 Flow 안에서 바로 이어 붙이고 잘라볼 수 있는 편집 화면입니다. 최종 편집(자막, 숫자)은 CapCut에서 하세요.</li>
+    <li><b>주의:</b> 클립 하나가 8초 안팎입니다. 일부 자료에서는 Veo의 "Extend(연장)" 기능이 2026년 11월 5일에 종료됐고 다른 모델(Omni Flash)로 바뀌었다고 해요. Google AI Pro/Ultra 구독 크레딧을 쓰니, 쓰기 전에 Flow 화면에서 모델과 크레딧을 확인하세요.</li>
+  </ul>
+  <div class="ticket"><div class="hd"><span>Flow 작업 순서 (엘리베이터 편)</span><button class="copy">복사</button></div>
+<pre>1. 재료 이미지 6장 만들기 (Flow 안에서 이미지 생성 또는 Nano Banana)
+   - 엘리베이터 로비 세트 (공통 스타일 고정문 사용)
+   - 하마 / 고릴라 / 코뿔소 / 코끼리 / 원숭이 벨보이 (각각 회색 배경 전신)
+2. Flow 새 프로젝트 → 비율 9:16 → "Ingredients to Video"
+3. 장면마다 재료 선택: 세트 + 그 장면에 나오는 동물 전부
+   예) 장면 3 = 세트 + 하마 + 고릴라 + 코뿔소
+4. 위 EP1의 "영상" 프롬프트 붙여넣기 → 한 번에 2~4개 생성 → 제일 나은 것 고르기
+5. 리액션 컷(원숭이, 표시판)은 "Text to Video"로 따로 생성
+6. Scenebuilder에서 순서대로 배치해 확인 → 내보내기 → CapCut에서 숫자·자막·음악</pre></div>
+
+  <h3>② Kling 3.0 멀티샷</h3>
+  <ul class="check">
+    <li>요청 한 번에 <b>여러 컷(최대 6컷, 15초 안팎)</b>을 이어서 만들 수 있다고 알려져 있어요. 엘리베이터 편처럼 같은 장소에서 이어지는 장면을 한꺼번에 뽑기 좋습니다.</li>
+    <li><b>Elements:</b> 고정 캐릭터를 등록해 두고 매 영상에 재사용할 수 있어서 시리즈 운영에 좋아요.</li>
+    <li>동물의 몸무게감과 움직임 표현이 강한 편입니다. 소리는 따로 넣어야 할 수 있어요.</li>
+  </ul>
+
+  <h3>③ Claude가 직접 생성 (Higgsfield 연결됨)</h3>
+  <ul class="check">
+    <li>이 대화에 <b>Higgsfield가 연결돼 있어서</b>, 위 프롬프트로 이미지와 영상을 제가 직접 한꺼번에 만들 수 있어요. Higgsfield 안에서 Kling, Veo 같은 여러 모델을 고를 수 있습니다.</li>
+    <li>여러 장면을 동시에 요청하고, 결과물 링크를 모아서 드리는 방식입니다. 직접 할 일은 고르기와 CapCut 편집뿐이에요.</li>
+    <li>현재 남은 크레딧은 <b>약 577</b>입니다 (Pro 플랜). 영상 모델과 길이에 따라 차감량이 다르니, 생성 전에 예상 비용을 먼저 알려드릴게요.</li>
+  </ul>
+
+  <h3>공통으로 시간을 줄이는 방법</h3>
+  <ul class="check">
+    <li><b>재료는 한 번만 만들기.</b> 세트 이미지와 캐릭터 시트를 폴더에 모아 두고 매 에피소드에 재사용하세요. 이게 시리즈 운영 속도를 가장 크게 좌우합니다.</li>
+    <li><b>CapCut 템플릿.</b> 첫 편을 완성하면 프로젝트를 복제해서 다음 편에 쓰세요. 제목 위치, 리액션 컷 자리, 효과음 트랙이 그대로 남아 영상만 바꿔 끼우면 됩니다.</li>
+    <li><b>몰아서 만들기.</b> 하루는 생성만, 하루는 편집만 하는 식으로 3~5편씩 묶어서 작업하세요. 한 편씩 처음부터 끝까지 하는 것보다 훨씬 빠릅니다.</li>
+    <li><b>프롬프트는 Claude에게.</b> 위 마스터 프롬프트에 소재만 넣으면 장면별 프롬프트가 다 나옵니다.</li>
+  </ul>
+</section>
+
 <section>
   <h2><span class="n">A</span>벤치마크 계정: Wild LOLs</h2>
   <p>조사일 2026-11-14 기준 공개 데이터입니다. 영상이 94개뿐인데 팔로워가 93만 명이에요. 포맷 하나로 아주 빠르게 성장한 계정입니다.</p>
