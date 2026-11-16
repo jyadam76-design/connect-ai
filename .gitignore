@@ -7,3 +7,9 @@ preview.html
 releases/
 .env
 *.bak.*
+
+# video-automation 작업 결과물(용량 큼)
+video-automation/runs/**/*.mp3
+video-automation/runs/**/*.mp4
+video-automation/runs/**/*.png
+video-automation/runs/**/tmp/
