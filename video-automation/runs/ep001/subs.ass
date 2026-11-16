@@ -1,0 +1,43 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Black Han Sans,86,&H00FFFFFF,&H00FFFFFF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,7,2,2,60,60,560,1
+Style: Hook,Black Han Sans,96,&H0000E5FF,&H00FFFFFF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,8,2,8,60,60,260,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.31,Sub,,0,0,0,,“김치는 일한 만큼
+Dialogue: 0,0:00:01.31,0:00:03.12,Sub,,0,0,0,,가져가는 거야.”
+Dialogue: 0,0:00:03.41,0:00:04.62,Sub,,0,0,0,,시누이가 그 말을 한
+Dialogue: 0,0:00:04.62,0:00:06.41,Sub,,0,0,0,,순간, 저는 지갑에서
+Dialogue: 0,0:00:06.41,0:00:08.40,Sub,,0,0,0,,영수증을 꺼냈습니다.
+Dialogue: 0,0:00:08.60,0:00:11.44,Sub,,0,0,0,,올해 김장 재료비 48만 원.
+Dialogue: 0,0:00:11.44,0:00:13.02,Sub,,0,0,0,,배추 서른 포기부터
+Dialogue: 0,0:00:13.02,0:00:14.49,Sub,,0,0,0,,고춧가루까지 전부 제
+Dialogue: 0,0:00:14.49,0:00:15.99,Sub,,0,0,0,,카드였어요.
+Dialogue: 0,0:00:16.20,0:00:18.01,Sub,,0,0,0,,시누이는 오후 늦게 와서
+Dialogue: 0,0:00:18.01,0:00:19.96,Sub,,0,0,0,,간만 보더니, 큰 통 세
+Dialogue: 0,0:00:19.96,0:00:21.03,Sub,,0,0,0,,개를 자기 차에 싣기
+Dialogue: 0,0:00:21.03,0:00:22.48,Sub,,0,0,0,,시작했습니다.
+Dialogue: 0,0:00:22.59,0:00:24.75,Sub,,0,0,0,,“언니는 돈으로 때웠잖아.
+Dialogue: 0,0:00:24.75,0:00:26.77,Sub,,0,0,0,,몸으로 한 건 나지.”
+Dialogue: 0,0:00:26.81,0:00:29.16,Sub,,0,0,0,,저는 영수증을 펼쳤어요.
+Dialogue: 0,0:00:29.57,0:00:31.20,Sub,,0,0,0,,“그럼 일한 만큼 말고,
+Dialogue: 0,0:00:31.20,0:00:32.80,Sub,,0,0,0,,낸 만큼 나눠요.
+Dialogue: 0,0:00:32.80,0:00:33.86,Sub,,0,0,0,,한 사람에 16만
+Dialogue: 0,0:00:33.86,0:00:35.80,Sub,,0,0,0,,원씩이에요, 아가씨.”
+Dialogue: 0,0:00:36.10,0:00:37.66,Sub,,0,0,0,,그때 어머님이 고무장갑을
+Dialogue: 0,0:00:37.66,0:00:39.00,Sub,,0,0,0,,벗으셨어요.
+Dialogue: 0,0:00:39.00,0:00:41.42,Sub,,0,0,0,,“미영아, 통 내려놔.
+Dialogue: 0,0:00:41.42,0:00:43.28,Sub,,0,0,0,,올해부터는 낸 사람이 먼저
+Dialogue: 0,0:00:43.28,0:00:44.53,Sub,,0,0,0,,가져간다.”
+Dialogue: 0,0:00:45.08,0:00:46.66,Sub,,0,0,0,,그날 시누이 차에는 작은
+Dialogue: 0,0:00:46.66,0:00:48.54,Sub,,0,0,0,,통 하나만 실렸습니다.
+Dialogue: 0,0:00:48.83,0:00:50.40,Sub,,0,0,0,,여러분 집 김장은 어떻게
+Dialogue: 0,0:00:50.40,0:00:51.18,Sub,,0,0,0,,나누세요?
+Dialogue: 1,0:00:00.00,0:00:03.20,Hook,,0,0,0,,영수증을 꺼낸 며느리

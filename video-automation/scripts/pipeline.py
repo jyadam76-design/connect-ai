@@ -18,7 +18,7 @@ runs/epXXX/ 안에 필요한 파일:
 import argparse, base64, json, os, re, subprocess, sys, urllib.request
 
 W, H = 1080, 1920
-FONT = "Noto Sans CJK KR Black"
+FONT = os.environ.get("SUB_FONT", "Noto Sans CJK KR Black")  # 다른 환경에서는 SUB_FONT="Black Han Sans" 등
 
 
 def paragraphs(run):
@@ -162,7 +162,7 @@ def cmd_render(a):
     else:
         amap = ["-map", "0:v", "-map", "1:a"]
     final = os.path.join(a.run, "final.mp4")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-vf", f"ass='{ass}'", *amap,
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-vf", f"ass='{ass}'" + (f":fontsdir='{os.path.abspath(a.fontsdir)}'" if a.fontsdir else ""), *amap,
                     "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-pix_fmt", "yuv420p",
                     "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final], check=True)
     print(final)
@@ -174,7 +174,7 @@ def main():
     t = sp.add_parser("tts"); t.add_argument("run"); t.add_argument("--voice", required=True)
     t.add_argument("--model", default="eleven_multilingual_v2")
     s = sp.add_parser("subs"); s.add_argument("run"); s.add_argument("--hook", default="")
-    r = sp.add_parser("render"); r.add_argument("run"); r.add_argument("--bgm")
+    r = sp.add_parser("render"); r.add_argument("run"); r.add_argument("--bgm"); r.add_argument("--fontsdir")
     a = p.parse_args()
     {"tts": cmd_tts, "subs": cmd_subs, "render": cmd_render}[a.cmd](a)
 

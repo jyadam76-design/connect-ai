@@ -11,6 +11,18 @@
 - 작업 폴더: `video-automation/runs/{id}/`
 - 편집 도구: `python3 video-automation/scripts/pipeline.py {tts|subs|render}`
 
+## 렌더링 위치 (중요)
+
+이 클라우드 세션은 Higgsfield 결과물 서버(`*.cloudfront.net`)에서 파일을 내려받을 수 없습니다(네트워크 허용 요청이 거절됨).
+그래서 **합성(render)은 Higgsfield 작업 공간(`sandbox_exec`)에서** 합니다.
+1. 로컬에서 `tts`, `subs`(`SUB_FONT="Black Han Sans"`)까지 만든 뒤 `narration.mp3, subs.ass, scenes.json, pipeline.py`를 zip으로 묶어
+   `media_upload` → `curl PUT`(헤더 `If-None-Match: *`) → `media_confirm(type:"file")`.
+2. 작업 공간에서 zip과 장면 결과 url을 `curl`로 받고, 글꼴 `BlackHanSans-Regular.ttf`(google/fonts)를 `fonts/`에 둔다.
+3. `media_upload`로 결과 mp4 업로드 주소를 먼저 받고, 같은 명령 안에서 `pipeline.py render … --fontsdir fonts` 후 PUT.
+4. 대시보드에는 영상을 직접 넣을 수 없으므로 `https://` 링크(`preview.url`, `video.url`)로 넣고,
+   썸네일은 `sandbox_exec`의 `image_paths` 미리보기를 잘라 Artifact 자산으로 올린다.
+Uplika 발행 때는 이 공개 url을 `media_from_url`에 그대로 넘기면 된다.
+
 ## 상태 규칙
 
 각 에피소드의 `status.{단계}` 값은 다음 중 하나입니다.

@@ -297,13 +297,15 @@ function sheet(e,k){
     const modes=[{t:"사진 + 모션",d:"장면 사진에 천천히 확대되는 움직임을 줍니다. 크레딧이 적게 듭니다."},{t:"AI 영상",d:"장면마다 5초 AI 영상을 만듭니다. 인물이 실제로 움직이지만 크레딧이 많이 듭니다."}];
     return `<h3>장면 ${sc.length}개</h3>
     <div class="grid2">${modes.map((m,i)=>`<label class="choice"><input type="radio" name="sm-${esc(e.id)}" data-pick="sceneMode" data-ep="${esc(e.id)}" value="${i}" ${(e.sceneMode??0)==i?"checked":""}><div><b>${m.t}</b><div class="meta">${m.d}${e.costEstimate?.[i]?` · 예상 ${esc(e.costEstimate[i])}`:""}</div></div></label>`).join("")}</div>
-    <p class="hint">승인하면 Higgsfield 크레딧을 써서 장면을 만들고, 나레이션과 자막을 붙여 편집본까지 이어서 만듭니다.</p>
+    ${e.preview?.url?`<a class="btn primary" style="align-self:flex-start;text-decoration:none" href="${esc(e.preview.url)}" target="_blank" rel="noopener">▶ ${esc(e.preview.label||"미리보기 영상 열기")}</a>`:""}
+    <p class="hint">승인하면 고른 방식으로 장면을 만들고, 나레이션과 자막을 붙여 편집본까지 이어서 만듭니다.</p>
     <div class="scenes">${sc.map(c=>`<div class="scene">${c.video?`<video class="ph" src="${esc(c.video)}" muted playsinline preload="metadata"></video>`:c.img?`<img class="ph" src="${esc(c.img)}" alt="">`:`<div class="ph"></div>`}<p><b class="num">#${c.n}</b> ${esc(c.line)}<br><span class="prompt">${esc(c.prompt||"")}</span></p></div>`).join("")}</div>
     ${approveBar(e,k,"장면 영상 생성 승인")}`;
   }
   if(k==="edit"){
     if(!e.video?.url) return empty(s==="working"?"Claude가 컷 · 자막 · 모션을 붙여 편집하는 중입니다.":"장면 영상이 나오면 자동 편집본이 여기에 올라옵니다.")+approveBar(e,k,"편집본 확정",false);
-    return `<h3>자동 편집본</h3><video class="media" controls playsinline preload="metadata" src="${esc(e.video.url)}"></video>
+    const ext=/^https?:/.test(e.video.url);
+    return `<h3>자동 편집본</h3>${ext?`${e.video.poster?`<img class="media" style="max-width:240px" src="${esc(e.video.poster)}" alt="편집본 첫 화면">`:""}<a class="btn primary" style="align-self:flex-start;text-decoration:none" href="${esc(e.video.url)}" target="_blank" rel="noopener">▶ 완성본 열기 (새 탭)</a>`:`<video class="media" controls playsinline preload="metadata" src="${esc(e.video.url)}"></video>`}
     <p class="hint">${esc(e.video.note||"자막 · 무음 컷 · 배경음까지 적용된 9:16 완성본입니다.")}</p>${approveBar(e,k,"편집본 확정")}`;
   }
   if(k==="thumb"){
