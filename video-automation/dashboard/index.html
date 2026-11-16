@@ -138,6 +138,13 @@ label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mu
 .dmt th,.dmt td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
 .dmt th{color:var(--muted);font-weight:500;font-size:12px}
 .num{font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.char{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.char img{width:100%;aspect-ratio:640/362;object-fit:cover;background:#fff;max-width:100%}
+.char div{padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.char h3{margin:0;font-size:16px}
+.char p{margin:0;font-size:13px;color:var(--muted)}
+.char .meta{font-family:var(--f-mono);font-size:11px;color:var(--muted);overflow-wrap:anywhere}
 @media (prefers-reduced-motion:no-preference){.ep,.topic{transition:border-color .15s}}
 </style>
 
@@ -155,6 +162,7 @@ label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mu
       <a href="#radar" data-view="radar">주제 레이더</a>
       <a href="#calendar" data-view="calendar">예약 달력</a>
       <a href="#dm" data-view="dm">댓글 → DM</a>
+      <a href="#cast" data-view="cast">출연진</a>
     </nav>
   </div>
 </header>
@@ -196,6 +204,14 @@ label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mu
     </div>
     <div class="dmt" id="dmt"></div>
   </section>
+
+  <section id="v-cast" data-v="cast" hidden>
+    <div>
+      <h2>고정 출연진 캐릭터 시트</h2>
+      <p class="hint">장면을 만들 때 이 시트를 기준 이미지로 넣어서 얼굴·머리·의상이 매번 같게 나오게 합니다. 시리즈로 이어 갈 인물은 여기에 고정합니다.</p>
+    </div>
+    <div class="cast" id="cast"><div class="notice">출연진을 불러오는 중입니다.</div></div>
+  </section>
 </main>
 
 <script>
@@ -216,7 +232,7 @@ function showStatus(msg,err){const el=$("#status");el.hidden=!msg;el.textContent
 /* ---------- routing ---------- */
 function route(){
   const v=(location.hash||"#board").slice(1);
-  const view=["board","radar","calendar","dm"].includes(v)?v:"board";
+  const view=["board","radar","calendar","dm","cast"].includes(v)?v:"board";
   document.querySelectorAll("[data-v]").forEach(s=>s.hidden=s.dataset.v!==view);
   document.querySelectorAll("nav.tabs a").forEach(a=>a.dataset.view===view?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
 }
@@ -380,7 +396,14 @@ function renderDm(){
     <td class="num">${e.dm.sent??"-"}</td></tr>`).join("")}</tbody></table>`:'<div class="notice" style="border:0">아직 설정된 자동 DM이 없습니다. 영상의 발행 단계에서 키워드와 자료 링크를 정하면 여기에 모입니다.</div>';
 }
 
-function renderAll(){renderBoard();renderRadar();renderCal();renderDm()}
+let CAST=[];
+function renderCast(){
+  $("#cast").innerHTML=CAST.length?CAST.map(c=>`<article class="char">${c.img?`<img src="${esc(c.img)}" alt="${esc(c.name)} 캐릭터 시트">`:""}<div>
+    <h3>${esc(c.name)} <span class="pill todo">${esc(c.role||"")}</span></h3><p>${esc(c.desc||"")}</p>
+    ${c.sheetUrl?`<a href="${esc(c.sheetUrl)}" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px">원본 시트 크게 보기</a>`:""}
+    <span class="meta">${esc((c.episodes||[]).map(n=>String(n).padStart(3,"0")).join(", "))}${c.episodes?.length?" 편 출연":""}</span></div></article>`).join(""):'<div class="notice">아직 고정 출연진이 없습니다.</div>';
+}
+function renderAll(){renderBoard();renderRadar();renderCal();renderDm();renderCast()}
 
 /* ---------- writes ---------- */
 const now=()=>new Date().toISOString().slice(0,16).replace("T"," ");
@@ -447,5 +470,8 @@ route(); renderAll();
   db.collection("topics").onSnapshot(snap=>{
     TOPICS=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.score||0)-(a.score||0));renderRadar();
   },err=>showStatus("주제를 불러오지 못했습니다: "+err.message,true));
+  db.collection("characters").onSnapshot(snap=>{
+    CAST=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.order||0)-(b.order||0));renderCast();
+  },err=>showStatus("출연진을 불러오지 못했습니다: "+err.message,true));
 })();
 </script>

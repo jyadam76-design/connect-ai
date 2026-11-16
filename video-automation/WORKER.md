@@ -80,10 +80,13 @@ Uplika 발행 때는 이 공개 url을 `media_from_url`에 그대로 넘기면 �
 
 ## 4. 목소리 승인 (`voice: queued`)
 1. `pipeline.py tts runs/{id} --voice {voices[voicePick].key}` → `pipeline.py subs runs/{id} --hook "{표지 문구}"`.
-2. `scenes.json`의 문단마다 장면 프롬프트를 쓴다. 인물 설정은 에피소드 안에서 고정:
-   예) 며느리 40대 후반 단발·회색 니트, 시누이 30대 후반 긴 웨이브 머리·베이지 코트, 시어머니 70대 흰머리 쪽머리·꽃무늬 조끼.
+2. `scenes.json`의 문단마다 장면 프롬프트를 쓴다. **인물은 `characters` 컬렉션(대시보드 출연진)에서 고른다.**
+   - 장면에 나오는 인물마다 `promptTag`를 프롬프트에 그대로 넣고, `sheetJob`을 `medias: [{role:"image_references", value: sheetJob}]`로 넣는다.
+   - 새 인물이 필요하면 먼저 Higgsfield `character-sheet` 워크플로(분할 시트: 전신+얼굴, 16:9, `gpt_image_2_6` high/2k)로 시트를 만들고
+     `characters/{id}`에 `name, role, desc, img(썸네일 자산), sheetJob, sheetUrl, promptTag, episodes` 로 저장한 뒤 장면을 만든다.
+   - 에피소드에 나온 인물의 `episodes` 배열에 번호를 추가한다.
    공통 꼬리말: `Korean family drama, realistic, cinematic soft light, vertical 9:16, no text`.
-3. 장면 사진: `generate_image`(9:16)로 장면별 1장 → 결과 url을 `scenes[n].img`로.
+3. 장면 사진: `generate_image`(9:16, quality high, 2k)로 장면별 1장 → 결과 url을 `scenes[n].src`, 썸네일 자산을 `scenes[n].img`로.
    사진은 `runs/{id}/scenes/{nn}.png`로 내려받아 둔다.
 4. 비용 견적: 사진+모션 = 사진 생성 비용만, AI 영상 = 장면 수 × `kling3_0`(std, 5초, sound off) 1회 비용.
    `costEstimate: ["약 N 크레딧", "약 M 크레딧"]`.
