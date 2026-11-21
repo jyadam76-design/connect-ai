@@ -1,4 +1,4 @@
-# 클로드 영상편집 도구 설치 (Windows). PowerShell에서 실행:
+﻿# 클로드 영상편집 도구 설치 (Windows). PowerShell에서 실행:
 #   powershell -ExecutionPolicy Bypass -File scripts\setup-windows.ps1
 $ErrorActionPreference = "Stop"
 Set-Location (Join-Path $PSScriptRoot "..")

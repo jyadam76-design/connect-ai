@@ -1,4 +1,4 @@
-# 도구 설치 상태 점검 (Windows)
+﻿# 도구 설치 상태 점검 (Windows)
 Set-Location (Join-Path $PSScriptRoot "..")
 $missing = $false
 function Test-Tool($name, $cmd, $fix) {
