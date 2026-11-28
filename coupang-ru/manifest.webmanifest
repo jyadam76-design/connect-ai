@@ -1,0 +1,12 @@
+{
+  "name": "Coupang по-русски",
+  "short_name": "Coupang RU",
+  "description": "Поиск товаров на Coupang на русском языке",
+  "lang": "ru",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#1a5fd0",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
